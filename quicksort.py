@@ -17,6 +17,8 @@ def naive_quicksort(items):
 
 
 """
+    How an iteration of quicksort should work.
+
     3 5 4 1 2 # pivot = 3, i = 0, j = 4, increment_i
     ^       ^
     2 5 4 1 3 # pivot = 3, i = 1, j = 4, !increment_i
@@ -25,10 +27,7 @@ def naive_quicksort(items):
       ^   ^
     2 1 4 3 5 # pivot = 3, i = 2, j = 3, !increment_i
         ^ ^
-    2 1 3 4 5 
-
-    ============
-
+    2 1 3 4 5 ## i == j == 2
 """
 
 def quicksort(items, left=0, right=None):
@@ -43,28 +42,17 @@ def quicksort(items, left=0, right=None):
     i = left
     j = right
 
-    print(left, right)
-
     increment_i = False
 
     pivot = items[i]
 
     while i < j:
-        if increment_i:
-            if items[i] < pivot:
-                pass
-
-            else:
-                items[j] = items[i]
-                increment_i = False
-
-        else: 
-            if pivot < items[j]:
-                pass
-
-            else:
-                items[i] = items[j]
-                increment_i = True
+        if increment_i and items[i] > pivot:
+            items[j] = items[i]
+            increment_i = False
+        elif pivot >= items[j]: 
+            items[i] = items[j]
+            increment_i = True
 
         if increment_i:
             i += 1
@@ -74,7 +62,7 @@ def quicksort(items, left=0, right=None):
 
     quicksort(items, left, i)
     quicksort(items, j, right)
-    
+
     return items
 
 print(quicksort([3,5,4,1,2]))
