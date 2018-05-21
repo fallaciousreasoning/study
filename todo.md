@@ -3,13 +3,13 @@
 - [] Insertionsort
 - [x] Mergesort
 - [] Bubblesort
-- [] Heapsort
+- [x] Heapsort
 
 # Datastructures
 - [] Binary Tree
 - [] Red/Black
 - [] AVL Tree
-- [] Heap
+- [x] Heap
 - [] LinkedList
 - [] Stack/Queue?
 
