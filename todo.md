@@ -13,6 +13,7 @@
 - [] Graph from string of arcs
 
 # Algorithms
+- [x] Binary search
 - [] Depth First Search
 - [] Breadth First Search
 - [] A*
