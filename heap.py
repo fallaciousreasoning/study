@@ -1,6 +1,11 @@
+import math
+
 class Heap:
     def __init__(self, items=None):
         self.items = items or []
+
+        for i in reversed(range(len(self.items) - 1)):
+            self.sift_down(i)
 
     def insert(self, item):
         self.items.append(item)
@@ -28,7 +33,7 @@ class Heap:
         return parent_index * 2 + 2
 
     def parent_index(self, child_index):
-        return child_index // 2
+        return math.floor((child_index - 1) / 2)
 
     def parent(self, index):
         return self.items[self.parent_index(index)]
@@ -39,6 +44,8 @@ class Heap:
             self.swap(parent_index, index)
 
             index = parent_index
+        
+        self.sift_down(index)
 
     def sift_down(self, index):
         left_index = self.left_index(index)
