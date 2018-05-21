@@ -47,11 +47,14 @@ def quicksort(items, left=0, right=None):
     pivot = items[i]
 
     while i < j:
+        print(items)
         if increment_i and items[i] > pivot:
             items[j] = items[i]
+            items[i] = pivot
             increment_i = False
         elif pivot >= items[j]: 
             items[i] = items[j]
+            items[j] = pivot
             increment_i = True
 
         if increment_i:
@@ -61,8 +64,6 @@ def quicksort(items, left=0, right=None):
     items[i if increment_i else j] = pivot
 
     quicksort(items, left, i)
-    quicksort(items, j, right)
+    quicksort(items, i + 1, right)
 
     return items
-
-print(quicksort([3,5,4,1,2]))
