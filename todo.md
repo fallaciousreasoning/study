@@ -1,6 +1,6 @@
 # Sorts
-- [] Quicksort
-- [] Insertionsort
+- [x] Quicksort
+- [x] Insertionsort
 - [x] Mergesort
 - [] Bubblesort
 - [x] Heapsort

@@ -30,40 +30,47 @@ def naive_quicksort(items):
     2 1 3 4 5 ## i == j == 2
 """
 
-def quicksort(items, left=0, right=None):
-    if right is None:
-        right=len(items)
+def partition(items, left, right):
+    pivot = items[left]
+    i = left #index of pivot
 
-    if right - left <= 1:
-        return
+    def swap(i, j):
+        juggle = items[j]
+        items[j] = items[i]
+        items[i] = juggle
 
-    right -= 1
-
+    increment_i = False
     i = left
     j = right
 
-    increment_i = False
-
-    pivot = items[i]
-
     while i < j:
-        print(items)
-        if increment_i and items[i] > pivot:
-            items[j] = items[i]
-            items[i] = pivot
-            increment_i = False
-        elif pivot >= items[j]: 
-            items[i] = items[j]
-            items[j] = pivot
+        if items[j] < pivot and not increment_i:
+            swap(i, j)
             increment_i = True
+
+        elif items[i] >= pivot and increment_i:
+            swap(i, j)
+            increment_i = False
 
         if increment_i:
             i += 1
         else: j -= 1
 
-    items[i if increment_i else j] = pivot
 
-    quicksort(items, left, i)
-    quicksort(items, i + 1, right)
+    return i
+
+def quicksort(items, left=0, right=None):
+    if right is None:
+        right=len(items) - 1
+
+    if right < left:
+        return
+
+    p = partition(items, left, right)
+
+    quicksort(items, left, p - 1)
+    quicksort(items, p + 1, right)
 
     return items
+
+print(quicksort([1,7,4,8,3,2]))

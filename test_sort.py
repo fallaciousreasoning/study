@@ -22,4 +22,4 @@ def test(sort_algorithm):
                 print("Got     :", items[:i+1])
                 break
 
-test(insertionsort)
+test(quicksort)
