@@ -2,7 +2,7 @@ import random
 from quicksort import quicksort, naive_quicksort
 from mergesort import mergesort
 from heapsort import heapsort
-from insertionsort import naive_insertionsort
+from insertionsort import naive_insertionsort, insertionsort
 
 def test(sort_algorithm):
     sizes = [i for i in range(50, 1000, 50)]
@@ -22,4 +22,4 @@ def test(sort_algorithm):
                 print("Got     :", items[:i+1])
                 break
 
-test(naive_insertionsort)
+test(insertionsort)

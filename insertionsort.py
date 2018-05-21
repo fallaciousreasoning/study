@@ -15,4 +15,17 @@ def naive_insertionsort(items):
 
     return result
 
-print(naive_insertionsort([1,6,3,2,9,5]))
+def insertionsort(items):
+    def swap(i, j):
+        juggle = items[i]
+        items[i] = items[j]
+        items[j] = juggle
+
+    for i in range(len(items)):
+        for j in range(i + 1, len(items)):
+            if items[i] > items[j]:
+                swap(i, j)
+
+    return items
+
+print(insertionsort([1,6,3,2,9,5]))
