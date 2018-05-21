@@ -10,8 +10,7 @@
 - [] Red/Black
 - [] AVL Tree
 - [x] Heap
-- [] LinkedList
-- [] Stack/Queue?
+- [] Graph from string of arcs
 
 # Algorithms
 - [] Depth First Search
