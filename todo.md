@@ -6,7 +6,7 @@
 - [x] Heapsort
 
 # Datastructures
-- [] Binary Tree
+- [x] Binary Tree
 - [] Red/Black
 - [] AVL Tree
 - [x] Heap
