@@ -32,6 +32,7 @@ def get_intergal(prices):
 
 def get_biggest_plot(prices, capital):
     intergal = get_intergal(prices)
+    iterations = 0
 
     best = None
     max_squares = None
@@ -43,6 +44,8 @@ def get_biggest_plot(prices, capital):
         for x in range(len(prices)):
             for i in range(height - y):
                 for j in range(width - x):
+                    iterations += 1
+                    
                     area_width = j + 1
                     area_height = i + 1
 
@@ -56,6 +59,6 @@ def get_biggest_plot(prices, capital):
                     max_squares = area
                     best = (x, y, area_width, area_height)
 
-    return best
+    return (best, iterations)
 
 print(get_biggest_plot(input, 5))
