@@ -43,22 +43,37 @@ def get_biggest_plot(prices, capital):
 
         for x in range(len(prices)):
             for i in range(height - y):
-                for j in range(width - x):
+                min_valid = 0
+                max_valid = width - x
+
+                j = None
+                next = (width - x) // 2
+
+                while j != next:
+                    j = next
                     iterations += 1
-                    
+
                     area_width = j + 1
                     area_height = i + 1
 
-
+                    print(x,y,j,i)
                     price = intergal[y + i + 1][x + j + 1] + intergal[y][x] - intergal[y + i + 1][x] - intergal[y][x + j + 1]
 
-                    if price > capital: break
+                    if price <= capital:
+                        area = area_width * area_height
+                        if max_squares is None or area > max_squares:
+                            max_squares = area
+                            best = (x, y, area_width, area_height)
+                        
+                        next = (j + max_valid) // 2
+                        min_valid = next
 
-                    area = area_width * area_height
-                    if max_squares is not None and area < max_squares: continue
-                    max_squares = area
-                    best = (x, y, area_width, area_height)
+                    else:
+                        next = (j + min_valid) // 2
+                        max_valid = next
+
 
     return (best, iterations)
 
+# ((1, 2, 3, 2), 63)
 print(get_biggest_plot(input, 5))
