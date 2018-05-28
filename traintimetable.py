@@ -124,5 +124,6 @@ def run_test(size='tiny'):
 
     write_results(results, size)
 
-
-run_test()
+run_test('tiny')
+run_test('small')
+run_test('large')
