@@ -26,7 +26,7 @@ class Station:
                 self.remove_train(at)
 
     def can_depart_at(self, time):
-        available_trains = [train for train in self.trains if train.earliest_departure_time < time]
+        available_trains = [train for train in self.trains if train.earliest_departure_time <= time]
         
         if not available_trains:
             return None
