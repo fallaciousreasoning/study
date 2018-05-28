@@ -113,7 +113,7 @@ def parse_tests(size):
 def write_results(results, size):
     with open(f'{name}.{size}.out', 'w') as f:
         for i, result in enumerate(results):
-            f.write(f'Case #{i}: {result[0]} {result[1]}\n')
+            f.write(f'Case #{i+1}: {result[0]} {result[1]}\n')
 
 def run_test(size='tiny'):
     results = []
